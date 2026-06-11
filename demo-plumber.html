@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowRight Plumbing - Reliable Plumbers in Bristol</title>
+  <meta name="description" content="FlowRight Plumbing - Fast, reliable plumbers in Bristol. Available 24/7 for emergencies. No call-out fee. Free quotes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --blue: #1E40AF; --blue-light: #3B82F6; --dark: #0F172A; --slate: #64748B; --muted: #94A3B8; --bg: #F8FAFC; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: #fff; line-height: 1.6; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: #fff; border-bottom: 1px solid #E2E8F0; position: sticky; top: 0; z-index: 100; }
+    .logo { font-size: 20px; font-weight: 900; letter-spacing: -0.5px; color: var(--blue); }
+    .logo span { color: var(--dark); }
+    .nav-cta { background: var(--blue); color: #fff; padding: 9px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('https://source.unsplash.com/1400x800/?plumber,pipes'); background-size: cover; background-position: center; filter: brightness(0.35); }
+    .hero-content { position: relative; z-index: 2; padding: 5rem 2rem; max-width: 680px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(59,130,246,0.2); border: 1px solid rgba(59,130,246,0.4); color: #93C5FD; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 1.25rem; }
+    .hero h1 { font-size: clamp(30px, 4vw, 52px); font-weight: 900; line-height: 1.1; letter-spacing: -1.5px; color: #fff; margin-bottom: 1rem; }
+    .hero h1 span { color: var(--blue-light); }
+    .hero p { font-size: 16px; color: #CBD5E1; margin-bottom: 2rem; line-height: 1.7; max-width: 480px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--blue-light); color: #fff; padding: 13px 24px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 13px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; text-decoration: none; }
+    .hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .stat-num { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: -1px; }
+    .stat-label { font-size: 12px; color: #64748B; margin-top: 2px; }
+    .trust-bar { background: var(--blue); padding: 1rem 2rem; display: flex; align-items: center; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .trust-bar span { font-size: 13px; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 6px; }
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 0.5rem; }
+    h2.section-title { font-size: clamp(24px, 3vw, 34px); font-weight: 900; letter-spacing: -0.8px; margin-bottom: 0.5rem; line-height: 1.2; }
+    .section-lead { font-size: 15px; color: var(--slate); margin-bottom: 2.5rem; max-width: 500px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media(max-width:700px){ .services-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:420px){ .services-grid { grid-template-columns: 1fr; } }
+    .service-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 14px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+    .service-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .service-img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .service-body { padding: 1rem 1.1rem 1.25rem; }
+    .service-body h3 { font-size: 15px; font-weight: 700; margin-bottom: 5px; }
+    .service-body p { font-size: 13px; color: var(--slate); line-height: 1.55; }
+    .why { background: var(--bg); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .why-card { background: #fff; border: 1px solid #E2E8F0; border-radius: 12px; padding: 1.5rem; text-align: center; }
+    .why-icon { font-size: 32px; margin-bottom: 0.75rem; }
+    .why-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .why-card p { font-size: 13px; color: var(--slate); line-height: 1.5; }
+    .team-section { background: #fff; }
+    .team-img-wrap { border-radius: 16px; overflow: hidden; height: 380px; }
+    .team-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .team-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .team-text h2 { font-size: clamp(24px,3vw,34px); font-weight:900; letter-spacing:-0.8px; margin-bottom:1rem; line-height:1.2; }
+    .team-text p { font-size:15px; color:var(--slate); line-height:1.7; margin-bottom:1rem; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .review-card { background: var(--bg); border: 1px solid #E2E8F0; border-radius: 14px; padding: 1.5rem; }
+    .stars { color: #F59E0B; font-size: 14px; margin-bottom: 0.75rem; }
+    .review-card p { font-size: 14px; color: var(--slate); line-height: 1.6; margin-bottom: 1rem; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 10px; }
+    .reviewer-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+    .reviewer-name { font-size: 13px; font-weight: 700; }
+    .reviewer-loc { font-size: 12px; color: var(--muted); }
+    .contact-section { background: #0F172A; padding: 5rem 2rem; }
+    .contact-inner { max-width: 580px; margin: 0 auto; }
+    .contact-section .eyebrow { color: #60A5FA; }
+    .contact-section h2 { color: #fff; }
+    .contact-section .section-lead { color: var(--muted); }
+    .contact-form { display: flex; flex-direction: column; gap: 12px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+    input, select, textarea { width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 11px 14px; font-size: 14px; color: #fff; font-family: inherit; outline: none; appearance: none; }
+    input::placeholder, textarea::placeholder { color: #475569; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(59,130,246,0.5); }
+    select { color: var(--muted); cursor: pointer; }
+    select option { background: #1E293B; }
+    textarea { resize: vertical; min-height: 90px; }
+    .submit-btn { background: var(--blue-light); color: #fff; border: none; border-radius: 8px; padding: 14px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; font-family: inherit; }
+    .form-success { display: none; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.2); border-radius: 12px; padding: 2rem; text-align: center; }
+    .form-success h3 { color: #4ADE80; font-size: 17px; margin-bottom: 8px; }
+    .form-success p { color: var(--muted); font-size: 13px; }
+    footer { background: #080f18; border-top: 1px solid rgba(255,255,255,0.05); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-size: 16px; font-weight: 900; color: var(--blue-light); }
+    footer p { font-size: 12px; color: #1E293B; }
+    @media(max-width:768px){ .team-layout { grid-template-columns: 1fr; } .team-img-wrap { height: 260px; } }
+    @media(max-width:640px){ nav { padding: 1rem 1.25rem; } .hero-content { padding: 3.5rem 1.25rem; } section { padding: 3.5rem 1.25rem; } .form-row { grid-template-columns: 1fr; } footer { flex-direction: column; text-align: center; } }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">FlowRight <span>Plumbing</span></div>
+    <a href="#contact" class="nav-cta">Get a free quote</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⚡ Available 24/7 - Bristol & surrounding areas</div>
+      <h1>Bristol's most <span>trusted plumbers</span></h1>
+      <p>Fast, reliable plumbing for homes and businesses across Bristol. No call-out fee, free quotes, and all work guaranteed for 12 months.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">Get a free quote</a>
+        <a href="#services" class="btn-outline">Our services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Happy customers</div></div>
+        <div class="stat-item"><div class="stat-num">12yr</div><div class="stat-label">Experience</div></div>
+        <div class="stat-item"><div class="stat-num">4.9★</div><div class="stat-label">Google rating</div></div>
+        <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-label">Emergency cover</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <span>✓ No call-out fee</span>
+    <span>✓ Free quotes</span>
+    <span>✓ 12-month guarantee</span>
+    <span>✓ Gas Safe registered</span>
+    <span>✓ Same-day available</span>
+  </div>
+
+  <section id="services">
+    <div class="section-inner">
+      <p class="eyebrow">What we do</p>
+      <h2 class="section-title">Plumbing services for every job</h2>
+      <p class="section-lead">From a dripping tap to a full bathroom installation - we cover it all.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <img class="service-img" src="https://source.unsplash.com/600x400/?emergency,plumbing" alt="Emergency plumbing" loading="lazy">
+          <div class="service-body"><h3>Emergency plumbing</h3><p>Burst pipes, major leaks, no hot water - we're available 24/7 and aim to be with you within the hour.</p></div>
+        </div>
+        <div class="service-card">
+          <img class="service-img" src="https://source.unsplash.com/600x400/?bathroom,renovation" alt="Bathroom installation" loading="lazy">
+          <div class="service-body"><h3>Bathroom installation</h3><p>Full bathroom fitting and renovation - from design to final finish. Supply only or full supply and fit.</p></div>
+        </div>
+        <div class="service-card">
+          <img class="service-img" src="https://source.unsplash.com/600x400/?boiler,heating" alt="Boiler repairs" loading="lazy">
+          <div class="service-body"><h3>Boiler repairs</h3><p>Boiler not working? We diagnose and repair all makes and models. Gas Safe registered engineers.</p></div>
+        </div>
+        <div class="service-card">
+          <img class="service-img" src="https://source.unsplash.com/600x400/?radiator,central+heating" alt="Central heating" loading="lazy">
+          <div class="service-body"><h3>Central heating</h3><p>New system installation, radiator fitting, power flushing and annual servicing to keep you warm.</p></div>
+        </div>
+        <div class="service-card">
+          <img class="service-img" src="https://source.unsplash.com/600x400/?water,leak" alt="Leak detection" loading="lazy">
+          <div class="service-body"><h3>Leak detection</h3><p>Can't find where it's coming from? We use specialist equipment to locate and fix leaks fast.</p></div>
+        </div>
+        <div class="service-card">
+          <img class="service-img" src="https://source.unsplash.com/600x400/?plumber,tools" alt="General plumbing" loading="lazy">
+          <div class="service-body"><h3>General plumbing</h3><p>Taps, toilets, showers, sinks - no job too small. Honest prices and tidy workmanship every time.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section">
+    <div class="section-inner">
+      <div class="team-layout">
+        <div class="team-img-wrap">
+          <img src="https://source.unsplash.com/800x600/?plumber,work" alt="FlowRight Plumbing engineer at work">
+        </div>
+        <div class="team-text">
+          <p class="eyebrow" style="color:var(--blue-light);">About us</p>
+          <h2>Bristol plumbers you can actually trust</h2>
+          <p>FlowRight Plumbing was founded in 2012 by Dave Harris, a Gas Safe engineer with over 20 years in the trade. We've built our reputation on honest pricing, tidy workmanship and turning up when we say we will.</p>
+          <p>Every job - big or small - gets the same level of care and attention. We treat your home like our own.</p>
+          <p style="font-weight:700; color:var(--dark);">Gas Safe Registered · Fully insured · 12-month workmanship guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="section-inner">
+      <p class="eyebrow">Why choose us</p>
+      <h2 class="section-title">Plumbers you can rely on</h2>
+      <p class="section-lead">We know there are plenty of plumbers out there. Here's why our customers keep coming back.</p>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">💰</div><h3>No call-out fee</h3><p>We never charge just to come and look. You only pay if you're happy with the quote.</p></div>
+        <div class="why-card"><div class="why-icon">⏱️</div><h3>On time, every time</h3><p>We give you a tight arrival window and stick to it - or we'll let you know in advance.</p></div>
+        <div class="why-card"><div class="why-icon">🛡️</div><h3>12-month guarantee</h3><p>All our work is guaranteed. If something isn't right, we'll come back and fix it for free.</p></div>
+        <div class="why-card"><div class="why-icon">📋</div><h3>Fixed quotes</h3><p>We quote upfront before we start. No nasty surprises - what we quote is what you pay.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-inner">
+      <p class="eyebrow">Reviews</p>
+      <h2 class="section-title">What our customers say</h2>
+      <p class="section-lead">Don't just take our word for it.</p>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="stars">★★★★★</div><p>"Called at 8pm with a burst pipe - Dave was here within 45 minutes and had it sorted in no time. Absolute lifesaver."</p><div class="reviewer"><div class="reviewer-avatar">SH</div><div><div class="reviewer-name">Sarah H.</div><div class="reviewer-loc">Clifton, Bristol</div></div></div></div>
+        <div class="review-card"><div class="stars">★★★★★</div><p>"Had our bathroom fully fitted by FlowRight. Brilliant job from start to finish - tidy, professional and exactly on budget."</p><div class="reviewer"><div class="reviewer-avatar">TM</div><div><div class="reviewer-name">Tom M.</div><div class="reviewer-loc">Redland, Bristol</div></div></div></div>
+        <div class="review-card"><div class="stars">★★★★★</div><p>"Boiler packed in on the coldest day of the year. Same day visit, diagnosed and fixed by evening. Great service."</p><div class="reviewer"><div class="reviewer-avatar">JW</div><div><div class="reviewer-name">Janet W.</div><div class="reviewer-loc">Southville, Bristol</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <p class="eyebrow">Get in touch</p>
+      <h2 class="section-title" style="color:#fff;">Get a free quote today</h2>
+      <p class="section-lead">Tell us about your job and we'll get back to you with a fixed price - usually within a couple of hours.</p>
+      <div class="contact-form" id="theForm">
+        <div class="form-row">
+          <div><label>Your name</label><input type="text" placeholder="John Smith"></div>
+          <div><label>Phone number</label><input type="tel" placeholder="07700 000000"></div>
+        </div>
+        <div><label>What do you need help with?</label><select><option value="" disabled selected>Select a service...</option><option>Emergency plumbing</option><option>Bathroom installation</option><option>Boiler repair</option><option>Central heating</option><option>Leak detection</option><option>General plumbing</option></select></div>
+        <div><label>Tell us more (optional)</label><textarea placeholder="Describe the problem or job..."></textarea></div>
+        <button class="submit-btn" onclick="document.getElementById('theForm').style.display='none';document.getElementById('successMsg').style.display='block'">Request free quote</button>
+      </div>
+      <div class="form-success" id="successMsg"><h3>✅ Thanks - we'll be in touch shortly!</h3><p>We aim to respond within 2 hours. For emergencies call us directly.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">FlowRight Plumbing</div>
+    <p>© 2026 FlowRight Plumbing - Bristol</p>
+    <p style="color:#334155;">Gas Safe Registered - No. 123456</p>
+  </footer>
+</body>
+</html>
