@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixflow - Web Design for UK Small Businesses</title>
+  <meta name="description" content="Pixflow builds fast, professional websites for UK small businesses in 7 days. Clear pricing, no jargon, done for you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #2563EB;
+      --blue-dark: #1D4ED8;
+      --navy: #0D1B2A;
+      --slate: #64748B;
+      --muted: #94A3B8;
+      --dim: #475569;
+      --border: rgba(255,255,255,0.08);
+      --card-bg: #111f2e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fff;
+      color: #0F172A;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: #fff;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .logo {
+      font-size: 20px; font-weight: 900; letter-spacing: -1px;
+      color: var(--blue); text-decoration: none;
+    }
+    .logo span { color: #0F172A; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--slate);
+      text-decoration: none; transition: color 0.15s;
+    }
+    .nav-links a:hover { color: #0F172A; }
+    .nav-cta {
+      background: var(--blue); color: #fff;
+      padding: 9px 20px; border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      text-decoration: none; transition: background 0.15s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { background: var(--blue-dark); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #0F172A; margin: 5px 0; border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(37,99,235,0.12);
+      border: 1px solid rgba(37,99,235,0.25);
+      color: #60A5FA;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 1.75rem;
+    }
+    .hero-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--blue);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.25;} }
+    .hero h1 {
+      font-size: clamp(34px, 5.5vw, 56px);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -2px; color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .accent { color: var(--blue); }
+    .hero-cursor {
+      display: inline-block; width: 4px; height: 0.85em;
+      background: var(--blue); vertical-align: middle;
+      margin-left: 3px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50%{opacity:0;} }
+    .hero p {
+      font-size: 17px; color: var(--muted);
+      max-width: 520px; margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+    .hero-btns {
+      display: flex; gap: 12px;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--blue); color: #fff;
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 700;
+      text-decoration: none; display: inline-block;
+      transition: background 0.15s;
+    }
+    .btn-primary:hover { background: var(--blue-dark); }
+    .btn-ghost {
+      background: transparent; color: var(--muted);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 500;
+      text-decoration: none; display: inline-block;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-ghost:hover { border-color: rgba(148,163,184,0.5); color: #fff; }
+
+    /* TRUST BAR */
+    .trust {
+      background: #0a1623;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem 2rem; text-align: center;
+    }
+    .trust-label {
+      font-size: 11px; color: var(--dim);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .trust-items {
+      display: flex; gap: 1.75rem;
+      justify-content: center; flex-wrap: wrap;
+    }
+    .trust-items span {
+      font-size: 13px; font-weight: 600; color: #2D3F52;
+    }
+
+    /* SECTIONS */
+    section { padding: 5rem 2rem; }
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--blue);
+      margin-bottom: 0.5rem;
+    }
+    h2.section-title {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 900; letter-spacing: -0.8px;
+      color: #0F172A; margin-bottom: 0.5rem; line-height: 1.15;
+    }
+    .section-lead {
+      font-size: 15px; color: var(--slate);
+      margin-bottom: 3rem; max-width: 520px;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 700px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 420px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+    .service-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px; padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover {
+      border-color: #BFDBFE;
+      box-shadow: 0 4px 16px rgba(37,99,235,0.06);
+    }
+    .service-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      background: #EFF6FF;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; font-size: 20px;
+    }
+    .service-card h3 {
+      font-size: 15px; font-weight: 700;
+      color: #0F172A; margin-bottom: 6px;
+    }
+    .service-card p { font-size: 13px; color: var(--slate); line-height: 1.55; }
+
+    /* HOW IT WORKS */
+    .how { background: #F8FAFC; }
+    .steps { display: flex; flex-direction: column; max-width: 580px; }
+    .step {
+      display: flex; gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid #E2E8F0;
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800;
+    }
+    .step h3 { font-size: 15px; font-weight: 700; color: #0F172A; margin-bottom: 4px; }
+    .step p { font-size: 13px; color: var(--slate); line-height: 1.55; }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .price-card {
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px; padding: 1.75rem;
+      transition: box-shadow 0.2s;
+    }
+    .price-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .price-card.featured { border: 2px solid var(--blue); }
+    .popular-badge {
+      display: inline-block;
+      background: #EFF6FF; color: var(--blue);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+      padding: 3px 10px; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .price-card h3 { font-size: 17px; font-weight: 800; color: #0F172A; margin-bottom: 4px; }
+    .price-amount {
+      font-size: 34px; font-weight: 900; letter-spacing: -1.5px;
+      color: #0F172A; margin: 10px 0 4px;
+    }
+    .price-amount small { font-size: 14px; font-weight: 400; color: var(--slate); }
+    .price-desc { font-size: 13px; color: var(--slate); margin-bottom: 1.25rem; line-height: 1.5; }
+    .price-features { list-style: none; margin-bottom: 1.5rem; }
+    .price-features li {
+      font-size: 13px; color: var(--slate);
+      padding: 4px 0; display: flex; align-items: flex-start; gap: 8px;
+    }
+    .price-features li::before {
+      content: '✓'; color: var(--blue); font-weight: 800;
+      font-size: 12px; margin-top: 2px; flex-shrink: 0;
+    }
+    .price-btn {
+      display: block; width: 100%; padding: 11px;
+      border-radius: 8px; font-size: 14px; font-weight: 700;
+      text-align: center; text-decoration: none;
+      border: 1.5px solid #E2E8F0; color: #0F172A;
+      background: transparent; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .price-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .price-card.featured .price-btn {
+      background: var(--blue); color: #fff; border-color: transparent;
+    }
+    .price-card.featured .price-btn:hover { background: var(--blue-dark); }
+
+    /* CONTACT / FORM */
+    .contact-section { background: var(--navy); padding: 5rem 2rem; }
+    .contact-inner { max-width: 600px; margin: 0 auto; }
+    .contact-section .eyebrow { color: #60A5FA; }
+    .contact-section h2 { color: #fff; }
+    .contact-section .section-lead { color: var(--muted); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label {
+      display: block; font-size: 12px; font-weight: 600;
+      color: var(--muted); letter-spacing: 0.3px; margin-bottom: 5px;
+    }
+    input, select, textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 12px 14px;
+      font-size: 14px; color: #fff;
+      font-family: inherit; outline: none;
+      transition: border-color 0.15s;
+      appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: #475569; }
+    input:focus, select:focus, textarea:focus { border-color: rgba(37,99,235,0.6); }
+    select { color: var(--muted); cursor: pointer; }
+    select option { background: #1E293B; color: #fff; }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .wa-notice {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: rgba(37,211,102,0.07);
+      border: 1px solid rgba(37,211,102,0.18);
+      border-radius: 8px; padding: 12px 14px;
+    }
+    .wa-notice svg { flex-shrink: 0; margin-top: 1px; }
+    .wa-notice p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .wa-notice a { color: #25D366; text-decoration: none; font-weight: 600; }
+
+    .submit-btn {
+      background: var(--blue); color: #fff;
+      border: none; border-radius: 8px;
+      padding: 15px; font-size: 15px; font-weight: 700;
+      cursor: pointer; width: 100%; transition: background 0.15s;
+      font-family: inherit;
+    }
+    .submit-btn:hover { background: var(--blue-dark); }
+
+    .form-success {
+      display: none;
+      background: rgba(37,211,102,0.08);
+      border: 1px solid rgba(37,211,102,0.2);
+      border-radius: 12px; padding: 2rem;
+      text-align: center;
+    }
+    .form-success h3 { font-size: 18px; font-weight: 800; color: #4ADE80; margin-bottom: 8px; }
+    .form-success p { font-size: 14px; color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      background: #080f18;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-size: 17px; font-weight: 900; letter-spacing: -0.5px; color: var(--blue); }
+    .footer-logo span { color: #334155; }
+    footer p { font-size: 12px; color: #1E293B; }
+    footer nav a {
+      font-size: 12px; color: #1E293B;
+      text-decoration: none; margin-left: 1.5rem;
+      transition: color 0.15s;
+    }
+    footer nav a:hover { color: var(--muted); }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-links.open {
+        display: flex; flex-direction: column; align-items: flex-start;
+        position: absolute; top: 61px; left: 0; right: 0;
+        background: #fff; border-bottom: 1px solid #E2E8F0;
+        padding: 1rem 1.25rem 1.5rem; gap: 1rem; z-index: 99;
+      }
+      .hero { padding: 4rem 1.25rem 3.5rem; }
+      section { padding: 3.5rem 1.25rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+      footer nav { margin-top: 0.5rem; }
+      footer nav a { margin: 0 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">Pix<span>flow</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact" class="nav-cta">Get started</a>
+    </div>
+    <button class="hamburger" onclick="toggleNav()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="hero-dot"></span>
+      UK Web Design · Fixed Prices · 7-Day Delivery
+    </div>
+    <h1>Your business deserves<br>to be <span class="accent">found online</span><span class="hero-cursor"></span></h1>
+    <p>We build fast, custom websites for UK small businesses in 7 days. Fixed price, done for you, no jargon.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get your website →</a>
+      <a href="#pricing" class="btn-ghost">See pricing</a>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust">
+    <p class="trust-label">Trusted by UK local businesses</p>
+    <div class="trust-items">
+      <span>🔧 Tradespeople</span>
+      <span>🍽️ Restaurants</span>
+      <span>✂️ Salons</span>
+      <span>🏋️ Gyms</span>
+      <span>🛍️ Retailers</span>
+      <span>🏥 Clinics</span>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="eyebrow">What we do</p>
+      <h2 class="section-title">Everything to get you online</h2>
+      <p class="section-lead">One fixed price, done for you - no technical knowledge needed on your end.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <h3>Custom website</h3>
+          <p>Hand-built, mobile-first sites that load fast and look great on every device.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3>Local SEO</h3>
+          <p>Set up so Google finds you when local customers search for what you offer.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📍</div>
+          <h3>Google Business</h3>
+          <p>Appear on Google Maps and start collecting reviews - the #1 trust signal for local customers.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3>7-day delivery</h3>
+          <p>Your site live within a week. You see it before it goes live - we tweak until you're happy.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💬</div>
+          <h3>Ongoing support</h3>
+          <p>Need a change? Just message us. We handle updates so you can focus on running your business.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+          <h3>Online shop</h3>
+          <p>Sell products and take bookings 24/7 with a clean, built-in store.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="how">
+    <div class="section-inner">
+      <p class="eyebrow">How it works</p>
+      <h2 class="section-title">Simple from start to finish</h2>
+      <p class="section-lead">We keep the process straightforward so you can stay focused on your business.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Fill in our short form</h3>
+            <p>Tell us about your business and what you need. Takes 2 minutes - we'll take it from there.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>Receive your quote</h3>
+            <p>We'll come back to you quickly with a clear, fixed price. No surprises, no hidden extras.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>We build your site</h3>
+            <p>Pay a 50% deposit and we get started. You'll get updates as we go - done within 7 days.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h3>Review, approve, go live</h3>
+            <p>You sign off when you're happy. We handle the launch - domain, hosting, everything sorted.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-inner">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-title">Clear, fixed prices</h2>
+      <p class="section-lead">What you see is what you pay. No hidden fees, ever.</p>
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <h3>Starter</h3>
+          <div class="price-amount">£299 <small>one-off</small></div>
+          <p class="price-desc">Get online fast with a clean, professional site.</p>
+          <ul class="price-features">
+            <li>3-page custom website</li>
+            <li>Mobile-friendly design</li>
+            <li>Contact form</li>
+            <li>Google-ready setup</li>
+            <li>Domain & hosting setup</li>
+          </ul>
+          <a href="#contact" class="price-btn">Get started</a>
+        </div>
+
+        <div class="price-card featured">
+          <div class="popular-badge">Most popular</div>
+          <h3>Growth</h3>
+          <div class="price-amount">£499 <small>+ £39/mo</small></div>
+          <p class="price-desc">For businesses that want to win on Google.</p>
+          <ul class="price-features">
+            <li>Up to 8 pages</li>
+            <li>Local SEO setup</li>
+            <li>Google Business profile</li>
+            <li>Blog / news section</li>
+            <li>Monthly edits included</li>
+            <li>Performance reports</li>
+          </ul>
+          <a href="#contact" class="price-btn">Get started</a>
+        </div>
+
+        <div class="price-card">
+          <h3>Pro</h3>
+          <div class="price-amount">£649 <small>+ £59/mo</small></div>
+          <p class="price-desc">For businesses that want the full works and priority service.</p>
+          <ul class="price-features">
+            <li>Up to 15 pages</li>
+            <li>Everything in Growth</li>
+            <li>Booking / appointment system</li>
+            <li>Priority 5-day delivery</li>
+            <li>Priority monthly support</li>
+            <li>Quarterly strategy review</li>
+          </ul>
+          <a href="#contact" class="price-btn">Get started</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <p class="eyebrow">Get started</p>
+      <h2 class="section-title" style="color:#fff;">Let's get you online</h2>
+      <p class="section-lead">Fill this in and we'll get back to you with a quote - usually within a few hours.</p>
+
+      <div class="contact-form" id="theForm">
+        <div class="form-row">
+          <div>
+            <label for="fname">Your name</label>
+            <input type="text" id="fname" placeholder="Sarah Johnson">
+          </div>
+          <div>
+            <label for="bname">Business name</label>
+            <input type="text" id="bname" placeholder="Sarah's Salon">
+          </div>
+        </div>
+        <div>
+          <label for="wanum">WhatsApp number</label>
+          <input type="tel" id="wanum" placeholder="+44 7700 000000">
+        </div>
+        <div>
+          <label for="btype">What type of business are you?</label>
+          <select id="btype">
+            <option value="" disabled selected>Select your industry...</option>
+            <option>Tradesperson (plumber, electrician, builder...)</option>
+            <option>Restaurant / café / takeaway</option>
+            <option>Hair or beauty salon</option>
+            <option>Gym / fitness / personal trainer</option>
+            <option>Retail / shop</option>
+            <option>Health / clinic / therapy</option>
+            <option>Other local service</option>
+          </select>
+        </div>
+        <div>
+          <label for="pkg">Which package interests you?</label>
+          <select id="pkg">
+            <option value="" disabled selected>Choose a package...</option>
+            <option>Starter - £299 one-off</option>
+            <option>Growth - £499 + £39/mo</option>
+            <option>Shop - £799 + £59/mo</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="notes">Anything else we should know? (optional)</label>
+          <textarea id="notes" placeholder="e.g. I already have a logo, I need a booking system, etc."></textarea>
+        </div>
+        <div class="wa-notice">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#25D366"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.528 5.855L0 24l6.335-1.505A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-5.032-1.388l-.36-.214-3.762.894.952-3.655-.235-.375A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" fill="#25D366"/>
+          </svg>
+          <p>We'll reply on WhatsApp - usually within a few hours. Prefer email? <a href="mailto:hello@pixflow.co.uk">hello@pixflow.co.uk</a></p>
+        </div>
+        <button class="submit-btn" onclick="submitForm()">Send my enquiry →</button>
+      </div>
+
+      <div class="form-success" id="successMsg">
+        <h3>✅ Got it - thanks!</h3>
+        <p>We'll be in touch on WhatsApp shortly with your quote. Keep an eye out!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Pix<span>flow</span></div>
+    <p>© 2026 Pixflow · Web Design for UK Small Businesses</p>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function submitForm() {
+      const fname = document.getElementById('fname').value.trim();
+      const bname = document.getElementById('bname').value.trim();
+      const wanum = document.getElementById('wanum').value.trim();
+      const btype = document.getElementById('btype').value;
+      const pkg   = document.getElementById('pkg').value;
+      if (!fname || !bname || !wanum || !btype || !pkg) {
+        alert('Please fill in all required fields before submitting.');
+        return;
+      }
+      document.getElementById('theForm').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
